@@ -1,0 +1,33 @@
+version: '3.1'
+
+services:
+  app:
+    container_name: app-admin-test
+    build:
+      context: ./Serveur/API
+      dockerfile: Dockerfile
+    volumes: 
+      - ./Serveur/API:/usr/src/app
+      - exclude:/usr/src/appnode_modules/
+    env_file: ./Serveur/API/.env
+    ports:
+      - '4400:3001'
+    depends_on:
+      - mongo
+    links:
+      - mongo
+
+  mongo:
+    container_name: app-mongo-test
+    build:
+      context: ./Serveur/Mongo
+      dockerfile: Dockerfile
+    volumes:
+      - data-clicar2:/data/db
+    restart: always
+    ports:
+      - '27027:27017'
+
+volumes:
+  data-clicar2:
+  exclude:
