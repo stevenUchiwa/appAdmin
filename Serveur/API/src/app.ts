@@ -1,19 +1,17 @@
 import express from 'express';
 import mongoose from "mongoose";
+import rooter from './Rootes';
 
 
 const app = express();
 const port = 3001;
 const mongoURI: string = process.env.MONGO_URI;
-app.get('/', (req, res) => {
-  res.send('The sedulous hyena ate the antelope!');
-});
+
+
+app.use('/',rooter);
 app.listen(port, () => {
   return console.log(`server is listening on ${port}`);
 });
-
-//Conexion mongo
-
 
 mongoose
   .connect(mongoURI)
