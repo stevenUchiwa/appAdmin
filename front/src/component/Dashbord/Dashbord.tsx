@@ -1,9 +1,13 @@
 import React from "react";
+import Topbar from "../../comme/TopBar";
 
 
 const Dashbord = function(){
     return(
-        <h1>My Dashbord</h1>
+        <>
+            <Topbar />
+            <h1>My Dashbord</h1>
+        </>
     )
 }
 
