@@ -1,3 +1,4 @@
+import { Translate } from '@mui/icons-material';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
@@ -10,11 +11,25 @@ const useStyles = makeStyles({
       marginTop: 'auto',
       marginBottom: 'auto',
       position: 'absolute',
+      display: 'block'
+      
     },
-    gridContainerHeight:{
-      minHeight: '100vh',
-      height: '100vh',
-    }
+   "@keyframes slideToLift":{
+     '0%':{
+       transform: "translateX(0)",
+     },
+     '100%':{
+      transform: "translateX(-70vh)",
+      display:'none'
+     }
+   },
+
+   slideAnimationTO: {
+    animation: "$slideToLift 3s ease-in normal both"
+   },
+   slideAnimationReverte: {
+    animation: "$slideToLift 3s ease-in reverse both"
+   }
   });
 
   export default useStyles;

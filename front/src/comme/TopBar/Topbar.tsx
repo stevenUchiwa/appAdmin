@@ -9,10 +9,20 @@ import Avatar from '@mui/material/Avatar';
 
 
 
-const Topbar = () =>{
+const Topbar = (props:{
+    changeSatateSlider:  (params:any) => void,
+    numberOfSate: number
+}) => {
+    const toogleState = () => {
+        if(props.numberOfSate === 0 || props.numberOfSate === 2){
+            props.changeSatateSlider(1)
+        }else{
+            props.changeSatateSlider(2)
+        }
+    }
     return(
         <Paper elevation={3} sx={{ display: 'flex', justifyContent: 'space-between',alignContent: 'center',alignItems: 'center', p: 1}}>
-             <Box onClick={() => console.log('je suis clicker!')}>
+             <Box onClick={toogleState}>
               <MenuIcon fontSize="large" />
              </Box>
              <Typography variant="h5" gutterBottom component="div">
