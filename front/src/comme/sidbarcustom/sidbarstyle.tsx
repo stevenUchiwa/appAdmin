@@ -1,4 +1,3 @@
-import { Translate } from '@mui/icons-material';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
@@ -6,30 +5,21 @@ const useStyles = makeStyles({
       background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
       boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
       minHeight: '70vh',
-      height: '70vh',
+      height: '90vh',
       width: '50vh',
       marginTop: 'auto',
       marginBottom: 'auto',
-      position: 'absolute',
-      display: 'block'
-      
+      position: 'fixed',
+      display: 'block',
+      transform: 'translateX(0)',
+      transition: '2s',
     },
-   "@keyframes slideToLift":{
-     '0%':{
-       transform: "translateX(0)",
-     },
-     '100%':{
-      transform: "translateX(-70vh)",
-      display:'none'
-     }
-   },
-
-   slideAnimationTO: {
-    animation: "$slideToLift 3s ease-in normal both"
-   },
-   slideAnimationReverte: {
-    animation: "$slideToLift 3s ease-in reverse both"
-   }
+    hidesideBar: {
+      transform: 'translateX(0)'
+    },
+    showSliderBar: {
+      transform: 'translateX(-70vh)'
+    }
   });
 
   export default useStyles;
